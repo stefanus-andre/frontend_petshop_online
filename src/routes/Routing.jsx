@@ -2,6 +2,7 @@ import {Route, Routes} from "react-router-dom";
 import Register from "../auth/Register.jsx";
 import App from "../App.jsx";
 import Login from "../auth/Login.jsx";
+import Dashboard from "../user/dashboard/Dashboard.jsx";
 
 export default function Routing() {
     return (
@@ -9,6 +10,9 @@ export default function Routing() {
             <Route path="/" element={<App />}></Route>
             <Route path="/register" element={<Register/>}></Route>
             <Route path="/login" element={<Login/>}></Route>
+
+            {/*user dashboard*/}
+            <Route path="/user/dashboard" element={<Dashboard/>}></Route>
         </Routes>
     )
 }
