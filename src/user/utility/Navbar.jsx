@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import {Helmet} from "react-helmet";
+import { FaShoppingCart } from "react-icons/fa"; // import icon keranjang
 
 export default function Navbar() {
     const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(false);
@@ -14,6 +15,9 @@ export default function Navbar() {
         setIsMobileMenuOpen(!isMobileMenuOpen);
     };
 
+    const cartItemCount = 1;
+
+
     return (
         <>
 
@@ -24,12 +28,23 @@ export default function Navbar() {
         <nav className="bg-white border-gray-300 dark:bg-gray-900">
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                 <Link to="#" className="flex items-center space-x-3 rtl:space-x-reverse">
-                    <img src="https://flowbite.com/docs/images/logo.svg" alt="Flowbite logo" className="h-8"/>
-                    <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
+                    <img src="" alt="logo" className="h-8"/>
+                    <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"></span>
                 </Link>
 
                 {/* User avatar and mobile toggle */}
                 <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+
+                    {/*cart button*/}
+                    <Link to="/cart" className="relative mr-3 text-gray-700 dark:text-white hover:text-blue-600 dark:hover:text-blue-400">
+                        <FaShoppingCart className="w-6 h-6" />
+                        {cartItemCount > 0 && (
+                            <span className="absolute -top-2 -right-2 inline-flex items-center justify-center px-1.5 py-0.5 text-xs font-bold leading-none text-white bg-red-600 rounded-full">
+                                    {cartItemCount}
+                                </span>
+                        )}
+                    </Link>
+
                     {/* User avatar button */}
                     <button
                         type="button"
